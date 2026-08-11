@@ -30,7 +30,7 @@ export function SiteHeader() {
     <header className="sticky top-0 z-40 border-b border-border bg-surface/95 backdrop-blur">
       <div className="container-page flex flex-col gap-3 py-3">
         <div className="flex items-center gap-3">
-          <BrandLogo />
+          <BrandLogo compact />
           <form onSubmit={onSearch} className="relative hidden flex-1 md:block">
             <input
               value={q}
@@ -93,7 +93,7 @@ export function SiteFooter() {
     <footer className="mt-auto border-t border-border bg-ink text-white">
       <div className="container-page grid gap-8 py-12 md:grid-cols-4">
         <div className="md:col-span-2">
-          <BrandLogo light />
+          <BrandLogo />
           <p className="mt-3 max-w-md text-sm text-white/70">
             Nigeria&apos;s dietary-first health &amp; wellness marketplace.
           </p>

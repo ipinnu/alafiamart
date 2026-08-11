@@ -14,14 +14,50 @@ export const CATEGORIES: {
   slug: CategorySlug;
   label: string;
   letter: string;
+  image: string;
 }[] = [
-  { slug: "foods-pantry", label: "Foods & Pantry", letter: "F" },
-  { slug: "snacks", label: "Snacks", letter: "S" },
-  { slug: "beverages", label: "Beverages", letter: "B" },
-  { slug: "supplements-vitamins", label: "Supplements & Vitamins", letter: "V" },
-  { slug: "household", label: "Household Essentials", letter: "H" },
-  { slug: "personal-care", label: "Personal Care", letter: "P" },
-  { slug: "baby-kids", label: "Baby & Kids", letter: "K" },
+  {
+    slug: "foods-pantry",
+    label: "Foods & Pantry",
+    letter: "F",
+    image: "/categories/foods-pantry.jpg",
+  },
+  {
+    slug: "snacks",
+    label: "Snacks",
+    letter: "S",
+    image: "/categories/snacks.jpg",
+  },
+  {
+    slug: "beverages",
+    label: "Beverages",
+    letter: "B",
+    image: "/categories/beverages.jpg",
+  },
+  {
+    slug: "supplements-vitamins",
+    label: "Supplements & Vitamins",
+    letter: "V",
+    image: "/categories/supplements-vitamins.jpg",
+  },
+  {
+    slug: "household",
+    label: "Household Essentials",
+    letter: "H",
+    image: "/categories/household.jpg",
+  },
+  {
+    slug: "personal-care",
+    label: "Personal Care",
+    letter: "P",
+    image: "/categories/personal-care.jpg",
+  },
+  {
+    slug: "baby-kids",
+    label: "Baby & Kids",
+    letter: "K",
+    image: "/categories/baby-kids.jpg",
+  },
 ];
 
 export const FREE_DELIVERY_THRESHOLD = 22900;

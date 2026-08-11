@@ -142,22 +142,25 @@ export default function HomePage() {
         <div className="section-rule mb-3" />
         <h2 className="text-2xl font-bold">Shop by Category</h2>
         <div className="mt-5 grid grid-cols-2 gap-3 md:grid-cols-4">
-          {CATEGORIES.map((c, i) => (
+          {CATEGORIES.map((c) => (
             <Link
               key={c.slug}
               href={`/category/${c.slug}`}
-              className="flex items-center gap-3 rounded-2xl border border-border bg-surface p-4 hover:border-accent"
+              className="group overflow-hidden rounded-2xl border border-border bg-surface shadow-sm transition hover:border-accent hover:shadow-md"
             >
-              <span
-                className={`flex h-10 w-10 items-center justify-center rounded-full font-bold ${
-                  i % 2 === 0
-                    ? "bg-brand-tint text-brand"
-                    : "bg-accent-tint text-accent"
-                }`}
-              >
-                {c.letter}
-              </span>
-              <span className="text-sm font-semibold">{c.label}</span>
+              <div className="relative aspect-[4/3] w-full overflow-hidden bg-accent-tint">
+                <Image
+                  src={c.image}
+                  alt={c.label}
+                  fill
+                  className="object-cover transition duration-300 group-hover:scale-105"
+                  sizes="(max-width: 768px) 50vw, 25vw"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-ink/55 via-ink/10 to-transparent" />
+                <span className="absolute bottom-3 left-3 right-3 font-[family-name:var(--font-sora)] text-sm font-bold text-white drop-shadow md:text-base">
+                  {c.label}
+                </span>
+              </div>
             </Link>
           ))}
         </div>
