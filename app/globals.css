@@ -1,15 +1,19 @@
 @import "tailwindcss";
 
 :root {
-  --brand: oklch(0.42 0.09 152);
+  /* From P1 atoms & components palette */
+  --brand: oklch(0.42 0.09 152); /* #2E6B4F */
   --brand-hover: oklch(0.35 0.08 152);
   --brand-tint: oklch(0.93 0.03 152);
-  --accent: oklch(0.62 0.16 42);
-  --amber: oklch(0.78 0.14 85);
+  --accent: oklch(0.62 0.16 42); /* Terracotta */
+  --accent-hover: oklch(0.55 0.16 42);
+  --accent-tint: oklch(0.94 0.04 42);
+  --amber: oklch(0.78 0.14 85); /* Warning */
+  --amber-tint: oklch(0.95 0.06 85);
   --danger: oklch(0.55 0.18 25);
   --danger-soft: oklch(0.97 0.02 25);
   --danger-border: oklch(0.9 0.06 25);
-  --ink: oklch(0.2 0.02 90);
+  --ink: oklch(0.2 0.02 90); /* #1E1E1E */
   --ink-hex: #1e1e1e;
   --muted: oklch(0.45 0.02 90);
   --muted-2: oklch(0.55 0.02 90);
@@ -30,7 +34,10 @@
   --color-brand-hover: var(--brand-hover);
   --color-brand-tint: var(--brand-tint);
   --color-accent: var(--accent);
+  --color-accent-hover: var(--accent-hover);
+  --color-accent-tint: var(--accent-tint);
   --color-amber: var(--amber);
+  --color-amber-tint: var(--amber-tint);
   --color-danger: var(--danger);
   --color-danger-soft: var(--danger-soft);
   --color-ink: var(--ink);
@@ -68,4 +75,11 @@ h4 {
   .container-page {
     padding-inline: 24px;
   }
+}
+
+.section-rule {
+  height: 3px;
+  width: 48px;
+  border-radius: 999px;
+  background: linear-gradient(90deg, var(--brand), var(--accent));
 }

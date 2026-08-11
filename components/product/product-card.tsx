@@ -1,41 +1,11 @@
 "use client";
 
 import Link from "next/link";
-import { Badge } from "@/components/ui/badge";
+import { ProductImage } from "@/components/product/product-image";
 import { Button } from "@/components/ui/button";
 import { useCart } from "@/lib/cart";
 import { formatNaira, stars } from "@/lib/format";
 import type { Product } from "@/lib/types";
-import { DIETARY_NEEDS } from "@/lib/data/products";
-
-function ProductImage({ product }: { product: Product }) {
-  return (
-    <div
-      className="relative aspect-square w-full overflow-hidden rounded-xl"
-      style={{
-        background: `linear-gradient(145deg, oklch(0.92 0.04 ${product.imageHue}), oklch(0.82 0.08 ${product.imageHue}))`,
-      }}
-    >
-      <div className="absolute inset-0 flex items-center justify-center p-4 text-center">
-        <span className="font-[family-name:var(--font-sora)] text-sm font-bold text-ink/70">
-          {product.name}
-        </span>
-      </div>
-      <div className="absolute left-2 top-2 flex flex-wrap gap-1">
-        {product.compareAt ? <Badge tone="sale">Sale</Badge> : null}
-        {product.nafdacVerified ? <Badge tone="success">NAFDAC Verified</Badge> : null}
-        {product.dietary.slice(0, 2).map((d) => {
-          const label = DIETARY_NEEDS.find((x) => x.id === d)?.label ?? d;
-          return (
-            <Badge key={d} tone={d}>
-              {label}
-            </Badge>
-          );
-        })}
-      </div>
-    </div>
-  );
-}
 
 export function ProductCard({ product }: { product: Product }) {
   const { addItem } = useCart();

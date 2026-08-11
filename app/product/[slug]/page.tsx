@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import Link from "next/link";
 import { use, useState } from "react";
 import { notFound } from "next/navigation";
@@ -38,12 +39,16 @@ export default function ProductPage({
       </p>
 
       <div className="mt-6 grid gap-8 lg:grid-cols-2">
-        <div
-          className="min-h-[320px] rounded-2xl border border-border"
-          style={{
-            background: `linear-gradient(145deg, oklch(0.92 0.04 ${product.imageHue}), oklch(0.8 0.09 ${product.imageHue}))`,
-          }}
-        />
+        <div className="relative min-h-[360px] overflow-hidden rounded-2xl border border-border bg-accent-tint">
+          <Image
+            src={product.image}
+            alt={product.name}
+            fill
+            priority
+            className="object-cover"
+            sizes="(max-width: 1024px) 100vw, 50vw"
+          />
+        </div>
         <div>
           <div className="mb-3 flex flex-wrap gap-2">
             {product.nafdacVerified ? (

@@ -3,11 +3,12 @@
 import Link from "next/link";
 import { FormEvent, useState } from "react";
 import { useRouter } from "next/navigation";
+import { BrandLogo } from "@/components/brand/logo";
 import { useCart } from "@/lib/cart";
 
 export function AnnouncementBar() {
   return (
-    <div className="bg-brand px-4 py-2 text-center text-xs font-medium text-white md:text-sm">
+    <div className="bg-gradient-to-r from-brand via-brand to-accent px-4 py-2 text-center text-xs font-medium text-white md:text-sm">
       Same-day delivery in Lagos, Abuja &amp; Ibadan · Order before 2PM for
       same-day dispatch
     </div>
@@ -29,12 +30,7 @@ export function SiteHeader() {
     <header className="sticky top-0 z-40 border-b border-border bg-surface/95 backdrop-blur">
       <div className="container-page flex flex-col gap-3 py-3">
         <div className="flex items-center gap-3">
-          <Link
-            href="/"
-            className="font-[family-name:var(--font-sora)] text-lg font-extrabold tracking-tight text-brand md:text-xl"
-          >
-            AlafiaMart
-          </Link>
+          <BrandLogo />
           <form onSubmit={onSearch} className="relative hidden flex-1 md:block">
             <input
               value={q}
@@ -45,20 +41,21 @@ export function SiteHeader() {
           </form>
           <Link
             href="/delivery"
-            className="hidden text-sm text-muted hover:text-brand lg:block"
+            className="hidden text-sm text-muted hover:text-accent lg:block"
           >
-            Delivering to: <span className="font-semibold text-ink">{location.area}</span>
+            Delivering to:{" "}
+            <span className="font-semibold text-ink">{location.area}</span>
           </Link>
           <Link href="/account" className="hidden text-sm font-semibold md:block">
             Account
           </Link>
           <Link
             href="/cart"
-            className="relative rounded-lg bg-brand px-3 py-2 text-sm font-bold text-white"
+            className="relative rounded-lg bg-accent px-3 py-2 text-sm font-bold text-white hover:bg-accent-hover"
           >
             Cart
             {count > 0 ? (
-              <span className="absolute -right-2 -top-2 flex h-5 min-w-5 items-center justify-center rounded-full bg-accent px-1 text-[11px]">
+              <span className="absolute -right-2 -top-2 flex h-5 min-w-5 items-center justify-center rounded-full bg-amber px-1 text-[11px] font-bold text-ink">
                 {count}
               </span>
             ) : null}
@@ -73,13 +70,13 @@ export function SiteHeader() {
           />
         </form>
         <nav className="hidden items-center gap-5 text-sm font-semibold text-ink md:flex">
-          <Link href="/category/supplements-vitamins" className="hover:text-brand">
+          <Link href="/category/supplements-vitamins" className="hover:text-accent">
             Shop by Dietary Need
           </Link>
-          <Link href="/search" className="hover:text-brand">
+          <Link href="/search" className="hover:text-accent">
             Shop by Category
           </Link>
-          <Link href="/delivery" className="hover:text-brand">
+          <Link href="/delivery" className="hover:text-accent">
             Same-Day Delivery
           </Link>
           <Link href="/account" className="hover:text-brand">
@@ -96,15 +93,13 @@ export function SiteFooter() {
     <footer className="mt-auto border-t border-border bg-ink text-white">
       <div className="container-page grid gap-8 py-12 md:grid-cols-4">
         <div className="md:col-span-2">
-          <p className="font-[family-name:var(--font-sora)] text-xl font-extrabold text-white">
-            AlafiaMart
-          </p>
-          <p className="mt-2 max-w-md text-sm text-white/70">
+          <BrandLogo light />
+          <p className="mt-3 max-w-md text-sm text-white/70">
             Nigeria&apos;s dietary-first health &amp; wellness marketplace.
           </p>
         </div>
         <div>
-          <p className="mb-3 text-sm font-bold">Help</p>
+          <p className="mb-3 text-sm font-bold text-amber">Help</p>
           <ul className="space-y-2 text-sm text-white/70">
             <li>FAQ</li>
             <li>Delivery &amp; Returns</li>
@@ -113,7 +108,7 @@ export function SiteFooter() {
           </ul>
         </div>
         <div>
-          <p className="mb-3 text-sm font-bold">Shop</p>
+          <p className="mb-3 text-sm font-bold text-accent">Shop</p>
           <ul className="space-y-2 text-sm text-white/70">
             <li>
               <Link href="/category/supplements-vitamins">Dietary Need</Link>

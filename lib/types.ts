@@ -38,6 +38,7 @@ export type Product = {
   batch?: string;
   expiry?: string;
   imageHue: number;
+  image: string;
   nutrition?: { label: string; value: string }[];
   ingredients?: string;
   contains?: string;

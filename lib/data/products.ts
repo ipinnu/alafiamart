@@ -48,6 +48,7 @@ export const products: Product[] = [
     sameDayEligible: true,
     nafdacVerified: false,
     imageHue: 42,
+    image: "https://images.unsplash.com/photo-1509440159596-0249088772ff?auto=format&fit=crop&w=800&q=80",
   },
   {
     id: "p2",
@@ -66,6 +67,7 @@ export const products: Product[] = [
     sameDayEligible: true,
     nafdacVerified: false,
     imageHue: 85,
+    image: "https://images.unsplash.com/photo-1517677208171-4bdcdb0b755e?auto=format&fit=crop&w=800&q=80",
   },
   {
     id: "p3",
@@ -88,6 +90,7 @@ export const products: Product[] = [
     batch: "NH-2026-0472",
     expiry: "Jun 2027",
     imageHue: 210,
+    image: "https://images.unsplash.com/photo-1550572017-edd951aa8f72?auto=format&fit=crop&w=800&q=80",
     nutrition: [
       { label: "Serving Size", value: "1 softgel" },
       { label: "Calories", value: "5 kcal" },
@@ -119,6 +122,7 @@ export const products: Product[] = [
     sameDayEligible: true,
     nafdacVerified: false,
     imageHue: 200,
+    image: "https://images.unsplash.com/photo-1563636619-e9143da7973b?auto=format&fit=crop&w=800&q=80",
   },
   {
     id: "p5",
@@ -138,6 +142,7 @@ export const products: Product[] = [
     sameDayEligible: true,
     nafdacVerified: false,
     imageHue: 55,
+    image: "https://images.unsplash.com/photo-1599599810769-bcde5a160d32?auto=format&fit=crop&w=800&q=80",
   },
   {
     id: "p6",
@@ -161,6 +166,7 @@ export const products: Product[] = [
     batch: "PL-2026-1102",
     expiry: "Mar 2028",
     imageHue: 280,
+    image: "https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?auto=format&fit=crop&w=800&q=80",
   },
   {
     id: "p7",
@@ -179,6 +185,7 @@ export const products: Product[] = [
     sameDayEligible: false,
     nafdacVerified: false,
     imageHue: 140,
+    image: "https://images.unsplash.com/photo-1593095948071-474c5cc2989d?auto=format&fit=crop&w=800&q=80",
   },
   {
     id: "p8",
@@ -197,6 +204,7 @@ export const products: Product[] = [
     sameDayEligible: true,
     nafdacVerified: false,
     imageHue: 70,
+    image: "https://images.unsplash.com/photo-1511689660979-10addacfda1a?auto=format&fit=crop&w=800&q=80",
   },
   {
     id: "p9",
@@ -219,6 +227,7 @@ export const products: Product[] = [
     batch: "VC-2026-033",
     expiry: "Jan 2028",
     imageHue: 190,
+    image: "https://images.unsplash.com/photo-1471864190281-a93a3070b6de?auto=format&fit=crop&w=800&q=80",
   },
   {
     id: "p10",
@@ -241,6 +250,7 @@ export const products: Product[] = [
     batch: "GH-2026-019",
     expiry: "Nov 2027",
     imageHue: 160,
+    image: "https://images.unsplash.com/photo-1559757148-5c350d0d3c56?auto=format&fit=crop&w=800&q=80",
   },
   {
     id: "p11",
@@ -263,6 +273,7 @@ export const products: Product[] = [
     batch: "IB-2026-088",
     expiry: "Aug 2027",
     imageHue: 30,
+    image: "https://images.unsplash.com/photo-1587854692152-cbe660dbde88?auto=format&fit=crop&w=800&q=80",
   },
   {
     id: "p12",
@@ -285,6 +296,7 @@ export const products: Product[] = [
     batch: "CB-2026-055",
     expiry: "May 2028",
     imageHue: 250,
+    image: "https://images.unsplash.com/photo-1628771065518-0d82f1935462?auto=format&fit=crop&w=800&q=80",
   },
   {
     id: "p13",
@@ -303,6 +315,7 @@ export const products: Product[] = [
     sameDayEligible: false,
     nafdacVerified: false,
     imageHue: 320,
+    image: "https://images.unsplash.com/photo-1607619056574-7b8d3ee536b2?auto=format&fit=crop&w=800&q=80",
   },
   {
     id: "p14",
@@ -325,6 +338,7 @@ export const products: Product[] = [
     batch: "MC-2026-012",
     expiry: "Feb 2028",
     imageHue: 10,
+    image: "https://images.unsplash.com/photo-1576671081837-49000212a370?auto=format&fit=crop&w=800&q=80",
   },
 ];
 

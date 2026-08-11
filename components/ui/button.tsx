@@ -15,7 +15,7 @@ const variants: Record<Variant, string> = {
   secondary:
     "border-[1.5px] border-brand text-brand bg-transparent hover:bg-brand-tint",
   ghost: "text-brand bg-transparent hover:bg-brand-tint",
-  accent: "bg-accent text-white hover:opacity-90",
+  accent: "bg-accent text-white hover:bg-accent-hover",
   destructive:
     "border border-[var(--danger-border)] text-danger bg-transparent hover:bg-danger-soft",
   whatsapp: "bg-whatsapp text-white hover:opacity-90",

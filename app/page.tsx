@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import Link from "next/link";
 import { FormEvent, useState } from "react";
 import { ProductCard } from "@/components/product/product-card";
@@ -12,6 +13,9 @@ import {
 } from "@/lib/data/products";
 import { checkDeliveryAvailability } from "@/lib/data/zones";
 import { useCart } from "@/lib/cart";
+
+const HERO_IMAGE =
+  "https://images.unsplash.com/photo-1490645935967-10de6ba17061?auto=format&fit=crop&w=1600&q=80";
 
 export default function HomePage() {
   const bestsellers = products.slice(0, 8);
@@ -30,75 +34,61 @@ export default function HomePage() {
 
   return (
     <div>
-      <section className="relative overflow-hidden border-b border-border">
-        <div
-          className="absolute inset-0"
-          style={{
-            background:
-              "linear-gradient(120deg, oklch(0.42 0.09 152) 0%, oklch(0.35 0.08 152) 45%, oklch(0.55 0.1 145) 100%)",
-          }}
+      <section className="relative min-h-[78vh] overflow-hidden border-b border-border md:min-h-[88vh]">
+        <Image
+          src={HERO_IMAGE}
+          alt="Fresh dietary foods and wellness ingredients"
+          fill
+          priority
+          className="object-cover"
+          sizes="100vw"
         />
-        <div
-          className="absolute inset-0 opacity-30"
-          style={{
-            backgroundImage:
-              "radial-gradient(circle at 80% 20%, oklch(0.85 0.08 85), transparent 40%), radial-gradient(circle at 10% 80%, oklch(0.7 0.1 42), transparent 35%)",
-          }}
-        />
-        <div className="container-page relative grid gap-8 py-14 md:grid-cols-[1.1fr_0.9fr] md:items-center md:py-20">
-          <div className="text-white">
-            <p className="mb-3 text-xs font-semibold uppercase tracking-[0.14em] text-white/80">
+        <div className="absolute inset-0 bg-gradient-to-r from-ink/80 via-brand/55 to-accent/35" />
+        <div className="container-page relative flex min-h-[78vh] items-end py-14 md:min-h-[88vh] md:items-center md:py-20">
+          <div className="max-w-xl text-white">
+            <p className="mb-3 text-xs font-semibold uppercase tracking-[0.14em] text-amber">
               Nigeria&apos;s dietary-first marketplace
             </p>
-            <h1 className="max-w-xl text-4xl font-extrabold leading-[1.1] md:text-5xl">
+            <h1 className="text-4xl font-extrabold leading-[1.1] md:text-5xl">
               Shop confidently for your dietary needs
             </h1>
-            <p className="mt-4 max-w-lg text-base text-white/85 md:text-lg">
+            <p className="mt-4 max-w-lg text-base text-white/90 md:text-lg">
               Verified gluten-free, low-GI &amp; NAFDAC-checked products,
               delivered same-day across Lagos, Abuja and Ibadan.
             </p>
             <div className="mt-7 flex flex-wrap gap-3">
               <Link href="/category/supplements-vitamins?diet=gluten-free">
-                <Button className="bg-white text-brand hover:bg-brand-tint">
+                <Button className="bg-accent text-white hover:bg-accent-hover">
                   Shop Gluten-Free
                 </Button>
               </Link>
               <Link href="/delivery">
-                <Button
-                  variant="secondary"
-                  className="border-white text-white hover:bg-white/10"
-                >
+                <Button className="border-[1.5px] border-white bg-transparent text-white hover:bg-white/15">
                   Check Delivery Area
                 </Button>
               </Link>
             </div>
           </div>
-          <div className="hidden min-h-[280px] rounded-2xl border border-white/20 bg-white/10 p-6 backdrop-blur md:block">
-            <p className="text-sm font-semibold uppercase tracking-wide text-white/70">
-              Lifestyle
-            </p>
-            <p className="mt-4 font-[family-name:var(--font-sora)] text-3xl font-bold text-white">
-              Real stock. Honest delivery windows. Trust you can verify.
-            </p>
-            <ul className="mt-6 space-y-3 text-sm text-white/85">
-              <li>✓ NAFDAC-verified supplements</li>
-              <li>✓ Secure Paystack checkout</li>
-              <li>✓ Same-day promise with zone rules</li>
-            </ul>
-          </div>
         </div>
       </section>
 
       <section className="container-page py-12">
-        <h2 className="text-2xl font-bold">Shop by Dietary Need</h2>
+        <div className="mb-5">
+          <div className="section-rule mb-3" />
+          <h2 className="text-2xl font-bold">Shop by Dietary Need</h2>
+        </div>
         <div className="mt-5 grid grid-cols-2 gap-3 sm:grid-cols-4 lg:grid-cols-7">
-          {DIETARY_NEEDS.map((d) => (
+          {DIETARY_NEEDS.map((d, i) => (
             <Link
               key={d.id}
               href={`/search?diet=${d.id}`}
-              className="flex flex-col items-center gap-2 rounded-2xl border border-border bg-surface p-4 text-center shadow-sm transition hover:border-brand hover:shadow-md"
+              className="flex flex-col items-center gap-2 rounded-2xl border border-border bg-surface p-4 text-center shadow-sm transition hover:border-accent hover:shadow-md"
             >
-              <span className="flex h-12 w-12 items-center justify-center rounded-full bg-brand text-lg font-bold text-white">
+              <span
+                className={`flex h-12 w-12 items-center justify-center rounded-full text-lg font-bold text-white ${
+                  i % 2 === 0 ? "bg-brand" : "bg-accent"
+                }`}
+              >
                 {d.letter}
               </span>
               <span className="text-sm font-semibold">{d.label}</span>
@@ -107,12 +97,11 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section className="bg-surface py-12">
+      <section className="border-y border-border bg-accent-tint/60 py-12">
         <div className="container-page">
+          <div className="section-rule mb-3" />
           <h2 className="text-2xl font-bold">Check delivery availability</h2>
-          <p className="mt-1 text-sm text-muted">
-            Enter your area or LGA
-          </p>
+          <p className="mt-1 text-sm text-muted">Enter your area or LGA</p>
           <form
             onSubmit={onCheck}
             className="mt-4 flex max-w-xl flex-col gap-3 sm:flex-row"
@@ -122,7 +111,9 @@ export default function HomePage() {
               onChange={(e) => setArea(e.target.value)}
               placeholder="e.g. Lekki Phase 1, Eti-Osa"
             />
-            <Button type="submit">Check</Button>
+            <Button type="submit" variant="accent">
+              Check
+            </Button>
           </form>
           {zoneMsg ? (
             <p className="mt-3 text-sm font-medium text-brand">{zoneMsg}</p>
@@ -132,12 +123,15 @@ export default function HomePage() {
 
       <section className="container-page py-12">
         <div className="mb-5 flex items-end justify-between gap-4">
-          <h2 className="text-2xl font-bold">Bestsellers</h2>
-          <Link href="/search" className="text-sm font-bold text-brand">
+          <div>
+            <div className="section-rule mb-3" />
+            <h2 className="text-2xl font-bold">Bestsellers</h2>
+          </div>
+          <Link href="/search" className="text-sm font-bold text-accent">
             See all →
           </Link>
         </div>
-        <div className="grid grid-cols-2 gap-3 md:grid-cols-3 lg:grid-cols-4 md:gap-5">
+        <div className="grid grid-cols-2 gap-3 md:grid-cols-3 md:gap-5 lg:grid-cols-4">
           {bestsellers.map((p) => (
             <ProductCard key={p.id} product={p} />
           ))}
@@ -145,15 +139,22 @@ export default function HomePage() {
       </section>
 
       <section className="container-page pb-12">
+        <div className="section-rule mb-3" />
         <h2 className="text-2xl font-bold">Shop by Category</h2>
         <div className="mt-5 grid grid-cols-2 gap-3 md:grid-cols-4">
-          {CATEGORIES.map((c) => (
+          {CATEGORIES.map((c, i) => (
             <Link
               key={c.slug}
               href={`/category/${c.slug}`}
-              className="flex items-center gap-3 rounded-2xl border border-border bg-surface p-4 hover:border-brand"
+              className="flex items-center gap-3 rounded-2xl border border-border bg-surface p-4 hover:border-accent"
             >
-              <span className="flex h-10 w-10 items-center justify-center rounded-full bg-brand-tint font-bold text-brand">
+              <span
+                className={`flex h-10 w-10 items-center justify-center rounded-full font-bold ${
+                  i % 2 === 0
+                    ? "bg-brand-tint text-brand"
+                    : "bg-accent-tint text-accent"
+                }`}
+              >
                 {c.letter}
               </span>
               <span className="text-sm font-semibold">{c.label}</span>
@@ -162,23 +163,38 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section className="border-t border-border bg-brand-tint/50 py-12">
+      <section className="border-t border-border bg-gradient-to-br from-brand-tint via-canvas to-accent-tint py-12">
         <div className="container-page grid gap-6 md:grid-cols-3">
           {[
             {
               title: "NAFDAC-verified supplements",
               body: "Batch, expiry & registration data checked before listing",
+              tone: "brand",
             },
             {
               title: "Secure Paystack checkout",
               body: "Card, bank transfer & USSD, all Nigeria-ready",
+              tone: "accent",
             },
             {
               title: "Same-day delivery promise",
               body: "Reflects real stock & zone rules — never a false promise",
+              tone: "amber",
             },
           ].map((item) => (
-            <div key={item.title} className="rounded-2xl bg-surface p-5 shadow-sm">
+            <div
+              key={item.title}
+              className="rounded-2xl border border-border/70 bg-surface p-5 shadow-sm"
+            >
+              <div
+                className={`mb-3 h-1.5 w-10 rounded-full ${
+                  item.tone === "brand"
+                    ? "bg-brand"
+                    : item.tone === "accent"
+                      ? "bg-accent"
+                      : "bg-amber"
+                }`}
+              />
               <h3 className="text-lg font-bold">{item.title}</h3>
               <p className="mt-2 text-sm text-muted">{item.body}</p>
             </div>

@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -51,12 +52,15 @@ export default function CartPage() {
                   key={item.productId}
                   className="flex flex-wrap items-center gap-4 rounded-2xl border border-border bg-surface p-4"
                 >
-                  <div
-                    className="h-20 w-20 rounded-xl"
-                    style={{
-                      background: `linear-gradient(145deg, oklch(0.92 0.04 ${p.imageHue}), oklch(0.8 0.08 ${p.imageHue}))`,
-                    }}
-                  />
+                  <div className="relative h-20 w-20 overflow-hidden rounded-xl bg-accent-tint">
+                    <Image
+                      src={p.image}
+                      alt={p.name}
+                      fill
+                      className="object-cover"
+                      sizes="80px"
+                    />
+                  </div>
                   <div className="min-w-0 flex-1">
                     <p className="font-bold">{p.name}</p>
                     <p className="text-sm text-muted">
